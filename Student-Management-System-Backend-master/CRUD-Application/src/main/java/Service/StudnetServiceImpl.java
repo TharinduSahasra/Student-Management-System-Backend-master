@@ -48,10 +48,12 @@ public class StudnetServiceImpl implements StudentService{
         studentRepository.findById(id).orElseThrow( () -> new RuntimeException());
         studentRepository.deleteById(id);
     }
-    public List<Student> getStudentsByYearOfEnrollment(int year) {
-        return studentRepository.findByYearOfEnrollment(year);
-    }
+
     public String getDepartmentByStudentId(Long id) {
         return studentRepository.findDepartmentByStudentId(id);
     }
+    public List<Student> getStudentsByYearOfEnrollment(int year) {
+        return studentRepository.findByYearOfEnrollment(year);
+    }
+   
 }
