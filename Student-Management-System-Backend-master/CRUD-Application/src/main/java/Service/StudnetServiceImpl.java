@@ -40,7 +40,7 @@ public class StudnetServiceImpl implements StudentService{
         existingStudent.setLastName(student.getLastName());
         existingStudent.setEmail(student.getEmail());
         existingStudent.setDepartment(student.getDepartment());
-        existingStudent.setYearOfEnrollment(student.getYearOfEnrollment());
+        existingStudent.setYearsOfEnrollment(student.getYearsOfEnrollment());
         return existingStudent;
     }
     @Override
@@ -48,10 +48,18 @@ public class StudnetServiceImpl implements StudentService{
         studentRepository.findById(id).orElseThrow( () -> new RuntimeException());
         studentRepository.deleteById(id);
     }
-    public List<Student> getStudentsByYearOfEnrollment(int year) {
-        return studentRepository.findByYearOfEnrollment(year);
+    
+    @Override
+    public List<Student> getStudentByYearsOfExperience(int years){
+        return studentRepository.findByYearsOfEnrollment(years);
     }
-    public String getDepartmentByStudentId(Long id) {
-        return studentRepository.findDepartmentByStudentId(id);
+    @Override
+    public String findDepartmentById(long id){
+        return studentRepository.findDepartmentById(id);
+    }
+    @Override
+    public String deleteStudentByYearsOfEnrollment(int years){
+        studentRepository.deleteStudentByYearsOfEnrollment(years);
+        return "Deleted Successfully";
     }
 }

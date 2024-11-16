@@ -12,29 +12,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-@Entity
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
-@Table(name = "student")
+@Entity
+@Table(name="Student")
 public class Student {
-      @Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private long id;
+    private long id;
 
-   
     private String firstName;
-
     private String lastName;
-
-   
     private String email;
-
-    
     private String department;
-
-    
-    private int yearOfEnrollment;
-
-    
+    private int yearsOfEnrollment;
 }
